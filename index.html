@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prabhakar | Digital Business MBA</title>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOURID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-YOURID');
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* === CSS Variables (Dark/Light Mode) === */
+        :root {
+            --primary: #4e6bff;
+            --secondary: #ff6b6b;
+            --dark: #121212;
+            --light: #ffffff;
+            --gray: #2d2d2d;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] {
+            --dark: #ffffff;
+            --light: #121212;
+            --gray: #f0f0f0;
+        }
+
+        /* === Base Styles === */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+
+        /* === Navbar === */
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            background: var(--gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--light);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        /* === Hero Section === */
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--gray) 100%);
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 20px 0 10px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin: 10px 0 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1.5rem;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            color: var(--light);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* === Projects === */
+        #projects {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--gray);
+            border-radius: 10px;
+            padding: 25px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid var(--primary);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .project-card p {
+            margin-bottom: 15px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tech {
+            background: rgba(78, 107, 255, 0.2);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* === Buttons === */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #3a5bff;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* === Contact Form === */
+        #contact {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--gray);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-weight: 500;
+        }
+
+        input, textarea {
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: var(--light);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(78, 107, 255, 0.2);
+        }
+
+        /* === Footer === */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--gray);
+            margin-top: 60px;
+        }
+
+        /* === Responsive Design === */
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 80px 20px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button id="theme-toggle"><i class="fas fa-moon"></i></button></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <img src="https://via.placeholder.com/300" alt="Prabhakar" class="profile-img">
+        <h1>Prabhakar Kumar Singh</h1>
+        <p class="tagline">MBA Student specializing in Digital Business | Bridging Technology and Strategy</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Hire Me</a>
+            <a href="resume.pdf" download class="btn btn-outline">
+                <i class="fas fa-download"></i> Download Resume
+            </a>
+        </div>
+        <div class="social-links">
+            <a href="https://linkedin.com/in/your-profile" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/your-username" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="mailto:prabhakar2653@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://twitter.com/your-handle" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <h3>Attendance Tracker App</h3>
+                <p>A web-based solution for faculty to manage student attendance with export capabilities and data visualization.</p>
+                <div class="tech-stack">
+                    <span class="tech">HTML</span>
+                    <span class="tech">CSS</span>
+                    <span class="tech">JavaScript</span>
+                    <span class="tech">LocalStorage</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/your-repo" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i> Code
+                    </a>
+                    <a href="https://live-demo.com" target="_blank" class="btn btn-outline">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <h3>Business Analytics Dashboard</h3>
+                <p>Interactive dashboard analyzing sales trends and customer behavior with predictive modeling.</p>
+                <div class="tech-stack">
+                    <span class="tech">Excel</span>
+                    <span class="tech">Power BI</span>
+                    <span class="tech">SQL</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-file-pdf"></i> Case Study
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <h3>Digital Marketing Campaign</h3>
+                <p>Created and executed a social media campaign that increased engagement by 150%.</p>
+                <div class="tech-stack">
+                    <span class="tech">Google Ads</span>
+                    <span class="tech">Facebook Ads</span>
+                    <span class="tech">SEO</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" class="btn btn-primary">
+                        <i class="fas fa-chart-line"></i> Metrics
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <h2>My Skills</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3><i class="fas fa-chart-bar"></i> Business Analytics</h3>
+                <ul>
+                    <li>Financial Modeling</li>
+                    <li>Market Research</li>
+                    <li>Data Visualization</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3><i class="fas fa-code"></i> Technical</h3>
+                <ul>
+                    <li>HTML/CSS</li>
+                    <li>Excel/Sheets</li>
+                    <li>Power BI</li>
+                </ul>
+            </div>
+            <div class="project-card">
+                <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                <ul>
+                    <li>SEO/SEM</li>
+                    <li>Social Media Strategy</li>
+                    <li>Google Analytics</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Prabhakar Kumar Singh. All rights reserved.</p>
+        <p>Made with <i class="fas fa-heart" style="color: var(--secondary);"></i> and coffee</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Dark/Light Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+            document.body.dataset.theme = newTheme;
+            themeToggle.innerHTML = newTheme === 'light' ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', newTheme);
+            
+            // Update Google Analytics event
+            gtag('event', 'theme_toggle', {
+                'event_category': 'preference',
+                'event_label': newTheme
+            });
+        });
+
+        // Initialize theme from localStorage
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.dataset.theme = 'light';
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+            
+            console.log('Form submitted:', formData);
+            alert('Thank you! Your message has been sent.');
+            contactForm.reset();
+            
+            // Google Analytics event
+            gtag('event', 'contact_submit', {
+                'event_category': 'engagement',
+                'event_label': 'Contact Form'
+            });
+        });
+
+        // Track downloads
+        document.querySelector('a[download]').addEventListener('click', () => {
+            gtag('event', 'download', {
+                'event_category': 'engagement',
+                'event_label': 'Resume Download'
+            });
+        });
+    </script>
+</body>
+</html>
